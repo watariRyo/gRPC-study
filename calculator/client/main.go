@@ -6,7 +6,7 @@ import (
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials/insecure"
 
-	pb "github.com/watariRyo/gRPC-study/greet/proto"
+	pb "github.com/watariRyo/gRPC-study/calculator/proto"
 )
 
 var addr string = "localhost:50051"
@@ -20,6 +20,6 @@ func main() {
 
 	defer conn.Close()
 	// ....
-	c := pb.NewGreetServiceClient(conn)
-	doGreet(c)
+	c := pb.NewCalculatorServiceClient(conn)
+	doSum(c)
 }

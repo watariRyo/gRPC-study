@@ -6,11 +6,11 @@ import (
 
 	"google.golang.org/grpc"
 
-	pb "github.com/watariRyo/gRPC-study/greet/proto"
+	pb "github.com/watariRyo/gRPC-study/calculator/proto"
 )
 
 type Server struct {
-	pb.GreetServiceServer
+	pb.CalculatorServiceServer
 }
 
 var addr string = "0.0.0.0:50051"
@@ -23,7 +23,7 @@ func main() {
 	}
 
 	s := grpc.NewServer()
-	pb.RegisterGreetServiceServer(s, &Server{})
+	pb.RegisterCalculatorServiceServer(s, &Server{})
 
 	if err = s.Serve(lis); err != nil {
 		log.Fatal("Failed to serve: %v\n", err)
