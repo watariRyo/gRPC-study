@@ -8,7 +8,7 @@ import (
 )
 
 func doSum(c pb.CalculatorServiceClient) {
-	log.Println("doCalculator was invoked")
+	log.Println("doSum was invoked")
 
 	res, err := c.Sum(context.Background(), &pb.SumRequest{
 		FirstNum: 10,
