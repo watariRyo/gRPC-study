@@ -7,6 +7,7 @@ import (
 	"google.golang.org/grpc"
 
 	pb "github.com/watariRyo/gRPC-study/calculator/proto"
+	"google.golang.org/grpc/reflection"
 )
 
 type Server struct {
@@ -24,6 +25,7 @@ func main() {
 
 	s := grpc.NewServer()
 	pb.RegisterCalculatorServiceServer(s, &Server{})
+	reflection.Register(s)
 
 	if err = s.Serve(lis); err != nil {
 		log.Fatal("Failed to serve: %v\n", err)
