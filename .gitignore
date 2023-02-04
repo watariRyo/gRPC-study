@@ -26,3 +26,7 @@ go.work
 
 # build
 build
+
+# ssl
+ssl/ca.*
+ssl/server.*
